@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-mood-measurement-heading" jhiTranslate="emotionsApp.moodMeasurement.home.createOrEditLabel">Create or edit a Mood Measurement</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="emotionsApp.moodMeasurement.mood" for="field_mood">Mood</label>
+                    <input type="number" class="form-control" name="mood" id="field_mood"
+                           formControlName="mood"/>
+                    <div *ngIf="editForm.get('mood')!.invalid && (editForm.get('mood')!.dirty || editForm.get('mood')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('mood')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('mood')?.errors?.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('mood')?.errors?.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 99 }">
+                            This field cannot be more than 99.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('mood')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="emotionsApp.moodMeasurement.message" for="field_message">Message</label>
+                    <input type="text" class="form-control" name="message" id="field_message"
+                           formControlName="message"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="emotionsApp.moodMeasurement.date" for="field_date">Date</label>
+                    <div class="d-flex">
+                        <input id="field_date" type="datetime-local" class="form-control" name="date" formControlName="date" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="emotionsApp.moodMeasurement.user" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" formControlName="user">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('user')!.value?.id ? editForm.get('user')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.login }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

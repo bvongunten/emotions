@@ -1,0 +1,44 @@
+{
+  "name": "MoodMeasurement",
+  "fields": [
+    {
+      "fieldName": "mood",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "min",
+        "max",
+        "required"
+      ],
+      "fieldValidateRulesMin": "0",
+      "fieldValidateRulesMax": "99"
+    },
+    {
+      "fieldName": "message",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "Instant"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "moodMeasurement",
+      "relationshipName": "user",
+      "otherEntityField": "login"
+    }
+  ],
+  "changelogDate": "20201207203900",
+  "entityTableName": "mood_measurement",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

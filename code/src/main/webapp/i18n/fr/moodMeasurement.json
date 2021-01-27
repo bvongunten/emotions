@@ -1,0 +1,25 @@
+{
+  "emotionsApp": {
+    "moodMeasurement": {
+      "home": {
+        "title": "MoodMeasurements",
+        "createLabel": "Créer un nouveau Mood Measurement",
+        "createOrEditLabel": "Créer ou éditer un Mood Measurement",
+        "notFound": "Aucun Mood Measurement trouvé"
+      },
+      "created": "Un nouveau Mood Measurement a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Mood Measurement avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Mood Measurement avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Mood Measurement {{ id }} ?"
+      },
+      "detail": {
+        "title": "Mood Measurement"
+      },
+      "mood": "Mood",
+      "message": "Message",
+      "date": "Date",
+      "user": "User"
+    }
+  }
+}

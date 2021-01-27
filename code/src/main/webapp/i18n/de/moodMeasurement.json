@@ -1,0 +1,25 @@
+{
+  "emotionsApp": {
+    "moodMeasurement": {
+      "home": {
+        "title": "Mood Measurements",
+        "createLabel": "Mood Measurement erstellen",
+        "createOrEditLabel": "Mood Measurement erstellen oder bearbeiten",
+        "notFound": "No Mood Measurements found"
+      },
+      "created": "Mood Measurement erstellt mit ID {{ param }}",
+      "updated": "Mood Measurement aktualisiert mit ID {{ param }}",
+      "deleted": "Mood Measurement gelöscht mit ID {{ param }}",
+      "delete": {
+        "question": "Soll Mood Measurement {{ id }} wirklich dauerhaft gelöscht werden?"
+      },
+      "detail": {
+        "title": "Mood Measurement"
+      },
+      "mood": "Mood",
+      "message": "Message",
+      "date": "Date",
+      "user": "User"
+    }
+  }
+}

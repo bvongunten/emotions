@@ -1,0 +1,10 @@
+
+${AnsiColor.RED} ███████╗███╗   ███╗ ██████╗ ████████╗██╗ ██████╗ ███╗   ██╗███████╗
+${AnsiColor.RED} ██╔════╝████╗ ████║██╔═══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║██╔════╝
+${AnsiColor.RED} █████╗  ██╔████╔██║██║   ██║   ██║   ██║██║   ██║██╔██╗ ██║███████╗
+${AnsiColor.RED} ██╔══╝  ██║╚██╔╝██║██║   ██║   ██║   ██║██║   ██║██║╚██╗██║╚════██║
+${AnsiColor.RED} ███████╗██║ ╚═╝ ██║╚██████╔╝   ██║   ██║╚██████╔╝██║ ╚████║███████║
+${AnsiColor.RED} ╚══════╝╚═╝     ╚═╝ ╚═════╝    ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝
+
+${AnsiColor.BRIGHT_BLUE}:: Emotions  :: Running Spring Boot ${spring-boot.version} ::
+:: https://github.com/bvongunten/emotions :: bvg@nostromo.ch ::${AnsiColor.DEFAULT}

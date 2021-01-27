@@ -1,0 +1,21 @@
+entity Team {
+  name String required,
+  slogan String required,
+  region String required,
+  image ImageBlob
+}
+
+relationship ManyToMany {
+  Team{user(login)} to User
+}
+
+entity MoodMeasurement {
+  mood Integer min(0) max(99) required,
+  message String, 
+  date Instant
+}
+
+relationship ManyToOne {
+  MoodMeasurement{user(login)} to User
+}
+

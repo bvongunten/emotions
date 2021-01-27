@@ -1,0 +1,13 @@
+{
+  "home": {
+    "title": "Bienvenue !",
+    "howAreYou": "++ How are you feling today?",
+    "tellUsWhy": "++ Wanna tell us why?",
+    "moodSaved": "++ Thank you, your entry has been saved.",
+    "logged": {
+      "message": "Vous êtes connecté en tant que \"{{username}}\"."
+    },
+    "like": "Si vous aimez Emotions, donnez nous une étoile sur",
+    "github": "GitHub "
+  }
+}

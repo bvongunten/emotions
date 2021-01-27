@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col-md-3">
+        <span class="emotions img-fluid rounded"></span>
+    </div>
+
+    <div class="col-md-9">
+        <h1 class="display-4" jhiTranslate="home.title">** Welcome, to Emotions</h1>
+
+        <div [ngSwitch]="isAuthenticated()">
+
+            <div *ngSwitchCase="true">
+                <p class="lead" jhiTranslate="home.howAreYou">** How are you feeling today?</p>
+
+                <div *ngIf="!isSaved">
+                    <div>
+                        <h1>
+                            <fa-icon *ngIf="moodValue != 0" style="color:darkgrey" icon="grimace" size="2x" (click)="setMood(0)"></fa-icon>
+                            <fa-icon *ngIf="moodValue == 0" style="color:red" icon="grimace" size="2x"></fa-icon>
+
+                            <fa-icon *ngIf="moodValue != 25" style="color:darkgrey" icon="frown" size="2x" (click)="setMood(25)"></fa-icon>
+                            <fa-icon *ngIf="moodValue == 25" style="color:indianred" icon="frown" size="2x"></fa-icon>
+
+                            <fa-icon *ngIf="moodValue != 50" style="color:darkgrey" icon="flushed" size="2x" (click)="setMood(50)"></fa-icon>
+                            <fa-icon *ngIf="moodValue == 50" style="color:orange" icon="flushed" size="2x"></fa-icon>
+
+                            <fa-icon *ngIf="moodValue != 75" style="color:darkgrey" icon="smile" size="2x" (click)="setMood(75)"></fa-icon>
+                            <fa-icon *ngIf="moodValue == 75" style="color:green" icon="smile" size="2x"></fa-icon>
+
+                            <fa-icon *ngIf="moodValue != 99" style="color:darkgrey" icon="grin-beam" size="2x" (click)="setMood(99)"></fa-icon>
+                            <fa-icon *ngIf="moodValue == 99" style="color:lawngreen" icon="grin-beam" size="2x"></fa-icon>
+                        </h1>
+
+                        <div class="form-group">
+                            <label class="form-control-label" jhiTranslate="home.tellUsWhy">** Wanna tell us why?</label>
+                            <input type="text" [(ngModel)]="textMessage" class="form-control" id="message" name="message"/>
+                        </div>
+
+                        <button *ngIf="!isSaved" type="button" id="save" class="btn btn-primary" (click)="saveMood()">
+                            <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                        </button>
+
+                    </div>
+                </div>
+
+                <div *ngIf="isSaved" class="alert alert-warning">
+                    <span jhiTranslate="home.moodSaved">** Thanks, your entry has been saved.</span>&nbsp;
+                </div>
+
+            </div>
+
+            <div class="alert alert-warning" *ngSwitchCase="false">
+                <span jhiTranslate="global.messages.info.register.noaccount">** You don't have an account yet?</span>&nbsp;
+                <a class="alert-link" routerLink="account/register" jhiTranslate="global.messages.info.register.link">** Register a new account</a>
+            </div>
+        </div>
+
+
+    </div>
+</div>

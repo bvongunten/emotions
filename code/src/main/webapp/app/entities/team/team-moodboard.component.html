@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="team">
+            <h2><span jhiTranslate="moodBoard.title">Mood Board for Team</span> {{ team.name }}</h2>
+
+            <hr>
+
+            <h4>{{ team.slogan }}</h4>
+
+            <br>
+            <div *ngIf="team.image">
+                <a (click)="openFile(team.imageContentType, team.image)">
+                    <img [src]="'data:' + team.imageContentType + ';base64,' + team.image" style="max-width: 100%;" alt="team image"/>
+                </a>
+            </div>
+
+            <br>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <jhi-alert></jhi-alert>
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col"><span jhiTranslate="moodBoard.person">ID</span></th>
+                    <th scope="col"><span jhiTranslate="moodBoard.mood">Name</span></th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr *ngFor="let moodMeasurement of moodMeasurements; index as i; first as isFirst">
+                    <td>{{ userName(moodMeasurement.user) }}</td>
+                    <td>
+                        <fa-icon *ngIf="moodMeasurement.mood != 0" style="color:darkgrey" icon="grimace" size="2x" (click)="setMood(moodMeasurement.user, 0)"></fa-icon>
+                        <fa-icon *ngIf="moodMeasurement.mood  == 0" style="color:red" icon="grimace" size="2x"></fa-icon>
+
+                        <fa-icon *ngIf="moodMeasurement.mood  != 25" style="color:darkgrey" icon="frown" size="2x" (click)="setMood(moodMeasurement.user, 25)"></fa-icon>
+                        <fa-icon *ngIf="moodMeasurement.mood  == 25" style="color:indianred" icon="frown" size="2x"></fa-icon>
+
+                        <fa-icon *ngIf="moodMeasurement.mood  != 50" style="color:darkgrey" icon="flushed" size="2x" (click)="setMood(moodMeasurement.user, 50)"></fa-icon>
+                        <fa-icon *ngIf="moodMeasurement.mood  == 50" style="color:orange" icon="flushed" size="2x"></fa-icon>
+
+                        <fa-icon *ngIf="moodMeasurement.mood  != 75" style="color:darkgrey" icon="smile" size="2x" (click)="setMood(moodMeasurement.user, 75)"></fa-icon>
+                        <fa-icon *ngIf="moodMeasurement.mood  == 75" style="color:green" icon="smile" size="2x"></fa-icon>
+
+                        <fa-icon *ngIf="moodMeasurement.mood  != 99" style="color:darkgrey" icon="grin-beam" size="2x" (click)="setMood(moodMeasurement.user, 99)"></fa-icon>
+                        <fa-icon *ngIf="moodMeasurement.mood  == 99" style="color:lawngreen" icon="grin-beam" size="2x"></fa-icon>
+                    </td>
+
+                </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+</div>
