@@ -9,4 +9,4 @@ Emotions is a simple web based mood board for agile teams.
 
 # Development
 
-The development is based on the Java JHipster Framework. Find informations [here](README-DEV.md)
+The development is based on the Java JHipster Framework.
