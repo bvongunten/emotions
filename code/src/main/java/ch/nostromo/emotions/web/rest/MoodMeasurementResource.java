@@ -30,6 +30,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 /**
  * REST controller for managing {@link ch.nostromo.emotions.domain.MoodMeasurement}.
@@ -178,9 +180,13 @@ public class MoodMeasurementResource {
         List<MoodMeasurement> result = new ArrayList<>();
 
         Team team = teamRepository.findById(id).get();
+        List<MoodMeasurement> teamMoodMeasurement = moodMeasurementRepository.findTopByTeam(team);
+        
         for (User user : team.getUsers()) {
-
-            Optional<MoodMeasurement> moodMeasurementOptional = moodMeasurementRepository.findTopByUserOrderByIdDesc(user);
+            Optional<MoodMeasurement> moodMeasurementOptional = teamMoodMeasurement
+            		.stream()
+            		.filter((mood) -> mood.getUser() == user)
+                	.findFirst();
             MoodMeasurement moodMeasurement = null;
 
             if (moodMeasurementOptional.isPresent()) {
@@ -194,7 +200,6 @@ public class MoodMeasurementResource {
 
                 moodMeasurement = moodMeasurementRepository.save(measurementToInsert);
             }
-
 
             result.add(moodMeasurement);
         }
